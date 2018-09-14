@@ -21,6 +21,18 @@ NEWSPIDER_MODULE = 'tencentNewsCommentSpider.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+# 用于向ES写数据，实际使用需要将修改为ES的IP+port
+# 查看 http://localhost:9200/blog/_search
+
+
+# ITEM_PIPELINES = {
+#     'scrapyelasticsearch.scrapyelasticsearch.ElasticSearchPipeline': 100
+# }
+#
+# ELASTICSEARCH_SERVERS = ['192.168.1.80:9200']
+# ELASTICSEARCH_INDEX = 'hot_events'
+# ELASTICSEARCH_TYPE = 'jishou'
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 

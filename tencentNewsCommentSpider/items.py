@@ -9,12 +9,21 @@ import scrapy
 
 
 class TencentnewscommentspiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    time = scrapy.Field()
-    comment = scrapy.Field()
-    news_title = scrapy.Field()
-    news_pubtime = scrapy.Field()
-    # news_link = scrapy.Field()
-    # hot_event = scrapy.Field()
+    hot_subject = scrapy.Field() #热点的主题
+    source = scrapy.Field()  #来源
+    second_source = scrapy.Field()  # 二级来源
+    title = scrapy.Field()  #标题
+    content = scrapy.Field()  #内容
+    link = scrapy.Field()  #链接
+    pubtime = scrapy.Field()  #发布时间
+    date = scrapy.Field()  #发布日期
+    # comments = scrapy.Field() #评论，包含评论内容和评论时间字段
+
+    comment = scrapy.Field()  #评论内容
+    comment_time = scrapy.Field()  # 评论时间
+
+    terminal = scrapy.Field()  #终端
+
+
 
 

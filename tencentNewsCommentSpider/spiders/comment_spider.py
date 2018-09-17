@@ -5,6 +5,7 @@ import json
 import datetime
 import requests
 from tencentNewsCommentSpider.items import TencentnewscommentspiderItem
+from scrapy.selector import Selector
 
 '''
 简介：爬取腾讯新闻评论
@@ -28,27 +29,49 @@ class CommentSpiderSpider(scrapy.Spider):
     allowed_domains = ['coral.qq.com']
     # start_urls = ['http://coral.qq.com/']
     start_urls = ['http://hn.qq.com/a/20180910/029307.htm']
+    # start_urls = ['http://hn.qq.com/a/20161227/033389.htm']
 
 
     def parse(self, response):
         item = TencentnewscommentspiderItem()
+        selector = Selector(response)
         print("网页信息")
         print(response.url)
 
         pubtime = re.findall(re.compile(r"pubtime:'(\d{4}-\d{1,2}-\d{1,2}\s\d{1,2}:\d{1,2})'"),str(response.text))
         cmtid = re.findall(re.compile(r'cmt_id = (\d+)'), str(response.text))
         # print(pubtime[0])
-        item['news_pubtime'] = pubtime[0]
+        item['pubtime'] = pubtime[0]
+
+        date = re.findall(re.compile(r"(\d{4}-\d{1,2}-\d{1,2})"),str(pubtime[0]))
+        item['date'] = date[0]
 
         news_title = re.findall(re.compile(r"title:(.*)"), str(response.text))
-        item['news_title'] = news_title[0]
+        item['title'] = news_title[0]
         # results = self.parse_coral("3082500237")
         results = self.parse_coral(str(cmtid[0])) #从新闻页面获取评论页面的cmt_id
 
+
+        passage = selector.xpath('//div[@class="qq_article"]//div[@class="bd"]//div[@class="Cnt-Main-Article-QQ"]/p/text()').extract()
+        res_str = ''
+        for every_pas in passage:
+            res_str += every_pas
+        item['content'] = res_str
+
+        # item['comments'] = {'comment':u'','comment_time':''}
+
+        item['hot_subject'] = "吉首非法拘禁案"
+        item['source'] = "news"
+        item['second_source'] = "tencentNews"
+        item['link'] = response.url
+        item['terminal'] = ""
+
+
         for i in range(len(results)):
             print(results[i])
-            item['time'] = results[i][0]
+            item['comment_time'] = results[i][0]
             item['comment']  = results[i][1]
+
             yield item
 
     def parse_coral(self, commentid):

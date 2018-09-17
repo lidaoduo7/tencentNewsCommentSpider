@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6cb3ee3-ce4e-47d6-86f4-02702a392d36" name="Default Changelist" comment="增加向ES管道写入数据代码段">
+      <change afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tencentNewsCommentSpider/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/tencentNewsCommentSpider/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tencentNewsCommentSpider/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tencentNewsCommentSpider/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,6 +47,7 @@
     <session id="155234617">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -56,10 +55,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="py" value="557" />
+          <entry key="txt" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="PLAIN_TEXT" value="19" />
           <entry key="Python" value="557" />
         </counts>
       </usages-collector>
@@ -92,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+            <state relative-caret-position="101">
+              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -259,15 +260,21 @@
       <option name="project" value="LOCAL" />
       <updated>1536913888758</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="item字段重构">
+      <created>1537165279114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1537165279114</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24966975" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24966975" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -275,7 +282,7 @@
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.51983005" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.51983005" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -290,7 +297,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="增加向ES管道写入数据代码段" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加向ES管道写入数据代码段" />
+    <MESSAGE value="item字段重构" />
+    <option name="LAST_COMMIT_MESSAGE" value="item字段重构" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/test.py">
@@ -329,8 +337,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+        <state relative-caret-position="101">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
         </state>
       </provider>
     </entry>

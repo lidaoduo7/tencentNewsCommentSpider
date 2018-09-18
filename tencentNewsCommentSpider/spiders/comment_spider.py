@@ -28,8 +28,8 @@ class CommentSpiderSpider(scrapy.Spider):
     name = 'comment_spider'
     allowed_domains = ['coral.qq.com']
     # start_urls = ['http://coral.qq.com/']
-    start_urls = ['http://hn.qq.com/a/20180910/029307.htm']
-    # start_urls = ['http://hn.qq.com/a/20161227/033389.htm']
+    # start_urls = ['http://hn.qq.com/a/20180910/029307.htm']
+    start_urls = ['http://hn.qq.com/a/20180916/039002.htm']
 
 
     def parse(self, response):
@@ -43,8 +43,10 @@ class CommentSpiderSpider(scrapy.Spider):
         # print(pubtime[0])
         item['pubtime'] = pubtime[0]
 
+
         date = re.findall(re.compile(r"(\d{4}-\d{1,2}-\d{1,2})"),str(pubtime[0]))
         item['date'] = date[0]
+
 
         news_title = re.findall(re.compile(r"title:(.*)"), str(response.text))
         item['title'] = news_title[0]
@@ -60,7 +62,7 @@ class CommentSpiderSpider(scrapy.Spider):
 
         # item['comments'] = {'comment':u'','comment_time':''}
 
-        item['hot_subject'] = "吉首非法拘禁案"
+        item['hot_subject'] = "吉首寻亲"
         item['source'] = "news"
         item['second_source'] = "tencentNews"
         item['link'] = response.url

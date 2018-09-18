@@ -30,7 +30,7 @@ ITEM_PIPELINES = {
 }
 
 ELASTICSEARCH_SERVERS = ['192.168.1.80:9200']
-ELASTICSEARCH_INDEX = 'test'
+ELASTICSEARCH_INDEX = 'hot_event4test'
 ELASTICSEARCH_TYPE = 'jishou'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)

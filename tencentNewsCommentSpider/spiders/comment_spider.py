@@ -29,8 +29,16 @@ class CommentSpiderSpider(scrapy.Spider):
     allowed_domains = ['coral.qq.com']
     # start_urls = ['http://coral.qq.com/']
     # start_urls = ['http://hn.qq.com/a/20180910/029307.htm']
-    start_urls = ['http://hn.qq.com/a/20180916/039002.htm']
+    start_urls = ['http://hn.qq.com/a/20180910/029307.htm',
+                  'http://hn.qq.com/a/20180916/039002.htm']
 
+    hot_event_dict = {
+        "http://hn.qq.com/a/20180910/029307.htm":"吉首非法拘禁案",
+        "http://hn.qq.com/a/20180916/039002.htm":"吉首寻亲"
+    }
+
+    def get_hot_subject(self,url):
+        return self.hot_event_dict[str(url)]
 
     def parse(self, response):
         item = TencentnewscommentspiderItem()
@@ -52,7 +60,22 @@ class CommentSpiderSpider(scrapy.Spider):
         item['title'] = news_title[0]
         # results = self.parse_coral("3082500237")
         results = self.parse_coral(str(cmtid[0])) #从新闻页面获取评论页面的cmt_id
+        # item['comments'] = results
 
+
+
+
+        # comment_time = results[0][0]
+        # comment = results[0][1]
+        # item['comments'] = {'comment_time':comment_time,'comment':comment}
+
+        comments_list = []
+        for i in range(len(results)):
+            comment_time = results[i][0]
+            comment = results[i][1]
+            comments_dict = {'comment_time':comment_time,'comment':comment}
+            comments_list.append(comments_dict)
+        item['comments'] = comments_list
 
         passage = selector.xpath('//div[@class="qq_article"]//div[@class="bd"]//div[@class="Cnt-Main-Article-QQ"]/p/text()').extract()
         res_str = ''
@@ -62,19 +85,24 @@ class CommentSpiderSpider(scrapy.Spider):
 
         # item['comments'] = {'comment':u'','comment_time':''}
 
-        item['hot_subject'] = "吉首寻亲"
+        # item['hot_subject'] = "吉首非法拘禁案"
+        # item['hot_subject'] = "吉首寻亲"
+        hot_subject = self.get_hot_subject(response.url)
+        item['hot_subject'] = hot_subject
+
         item['source'] = "news"
         item['second_source'] = "tencentNews"
         item['link'] = response.url
         item['terminal'] = ""
 
 
-        for i in range(len(results)):
-            print(results[i])
-            item['comment_time'] = results[i][0]
-            item['comment']  = results[i][1]
 
-            yield item
+        yield item
+        # for i in range(len(results)):
+        #     print(results[i])
+        #     item['comment_time'] = results[i][0]
+        #     item['comment']  = results[i][1]
+        #     yield item
 
     def parse_coral(self, commentid):
         '''
@@ -105,7 +133,8 @@ class CommentSpiderSpider(scrapy.Spider):
                 # print("评论时间")
                 # print(time)
                 # result.append(i["content"])
-                result.append((time,i["content"]))
+                # result.append({time:i["content"]})
+                result.append((time, i["content"]))
 
             url = url1 + out["data"]["last"] + url2  # 得到下一个评论页面链接
             # print("下一个评论页面链接")

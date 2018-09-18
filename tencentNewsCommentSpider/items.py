@@ -17,10 +17,10 @@ class TencentnewscommentspiderItem(scrapy.Item):
     link = scrapy.Field()  #链接
     pubtime = scrapy.Field()  #发布时间
     date = scrapy.Field()  #发布日期
-    # comments = scrapy.Field() #评论，包含评论内容和评论时间字段
+    comments = scrapy.Field() #评论，包含评论内容和评论时间字段
 
-    comment = scrapy.Field()  #评论内容
-    comment_time = scrapy.Field()  # 评论时间
+    # comment = scrapy.Field()  #评论内容
+    # comment_time = scrapy.Field()  # 评论时间
 
     terminal = scrapy.Field()  #终端
 

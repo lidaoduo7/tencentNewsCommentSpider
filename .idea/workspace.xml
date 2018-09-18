@@ -6,6 +6,8 @@
       <change beforePath="$PROJECT_DIR$/tencentNewsCommentSpider/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/tencentNewsCommentSpider/items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tencentNewsCommentSpider/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tencentNewsCommentSpider/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-0917.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-0917.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,32 +82,45 @@
     <session id="-1845628509">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="88" />
+          <entry key="py" value="436" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="88" />
+          <entry key="Python" value="436" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="1341">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
+                <marker date="1537254011889" expanded="true" signature="1405:1456" ph="..." />
               </folding>
             </state>
           </provider>
@@ -114,19 +129,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            <state relative-caret-position="162">
+              <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="349">
+              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
               <folding>
-                <marker date="1537177934269" expanded="true" signature="217:222" ph="..." />
+                <marker date="1537249297626" expanded="true" signature="217:222" ph="..." />
               </folding>
             </state>
           </provider>
@@ -136,7 +151,7 @@
         <entry file="file://$PROJECT_DIR$/start.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="39" />
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -158,14 +173,14 @@
       <list>
         <option value="$PROJECT_DIR$/tencentNewsCommentSpider/test.py" />
         <option value="$PROJECT_DIR$/tencentNewsCommentSpider/settings.py" />
-        <option value="$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py" />
         <option value="$PROJECT_DIR$/tencentNewsCommentSpider/items.py" />
+        <option value="$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="315" />
-    <option name="y" value="212" />
+    <option name="y" value="210" />
     <option name="width" value="1615" />
     <option name="height" value="725" />
   </component>
@@ -175,6 +190,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,7 +207,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,7 +319,7 @@
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.7209632" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.3711048" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -333,33 +348,34 @@
     <entry file="file://$PROJECT_DIR$/start.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        <state relative-caret-position="162">
+          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="349">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
           <folding>
-            <marker date="1537177934269" expanded="true" signature="217:222" ph="..." />
+            <marker date="1537249297626" expanded="true" signature="217:222" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tencentNewsCommentSpider/spiders/comment_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1341">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+            <marker date="1537254011889" expanded="true" signature="1405:1456" ph="..." />
           </folding>
         </state>
       </provider>

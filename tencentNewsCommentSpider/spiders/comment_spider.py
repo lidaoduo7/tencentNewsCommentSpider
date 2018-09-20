@@ -6,6 +6,8 @@ import datetime
 import requests
 from tencentNewsCommentSpider.items import TencentnewscommentspiderItem
 from scrapy.selector import Selector
+import datetime
+import socket
 
 '''
 简介：爬取腾讯新闻评论
@@ -30,11 +32,50 @@ class CommentSpiderSpider(scrapy.Spider):
     # start_urls = ['http://coral.qq.com/']
     # start_urls = ['http://hn.qq.com/a/20180910/029307.htm']
     start_urls = ['http://hn.qq.com/a/20180910/029307.htm',
-                  'http://hn.qq.com/a/20180916/039002.htm']
+                  'http://hn.qq.com/a/20180916/039002.htm',
+                  'http://hn.qq.com/a/20180626/013102.htm',
+                  'http://hn.qq.com/a/20180823/050027.htm',
+                  'http://hn.qq.com/a/20161115/038479.htm',
+                  'http://hn.qq.com/a/20160226/056722.htm',
+                  'http://hn.qq.com/a/20180912/082456.htm',
+                  'http://hn.qq.com/a/20161227/033389.htm',
+                  'http://hn.qq.com/a/20171108/024211.htm',
+                  'http://hn.qq.com/a/20180604/038348.htm',
+                  'http://hn.qq.com/a/20180510/022456.htm',
+                  'http://hn.qq.com/a/20180719/035934.htm',
+                  'http://hn.qq.com/a/20171122/017869.htm',
+                  'http://hn.qq.com/a/20160804/014680.htm',
+                  'http://hn.qq.com/a/20171128/059455.htm',
+                  'http://hn.qq.com/a/20180919/010893.htm',
+                  'http://hn.qq.com/a/20180919/014495.htm',
+                  'http://hn.qq.com/a/20170327/015273.htm',
+                  'http://hn.qq.com/a/20161223/019175.htm',
+                  'http://hn.qq.com/a/20171019/019442.htm',
+                  'http://hn.qq.com/a/20170622/042305.htm'
+                  ]
 
     hot_event_dict = {
         "http://hn.qq.com/a/20180910/029307.htm":"吉首非法拘禁案",
-        "http://hn.qq.com/a/20180916/039002.htm":"吉首寻亲"
+        "http://hn.qq.com/a/20180916/039002.htm":"吉首寻亲",
+        "http://hn.qq.com/a/20180626/013102.htm":"吉首交通",
+        "http://hn.qq.com/a/20180823/050027.htm":"吉首交通",
+        "http://hn.qq.com/a/20161115/038479.htm":"吉首高铁",
+        "http://hn.qq.com/a/20160226/056722.htm":"吉首高铁",
+        "http://hn.qq.com/a/20180912/082456.htm":"吉首好人好事",
+        "http://hn.qq.com/a/20161227/033389.htm":"吉首PPP项目",
+        "http://hn.qq.com/a/20171108/024211.htm":"吉首PPP项目",
+        "http://hn.qq.com/a/20180604/038348.htm":"吉首治安",
+        "http://hn.qq.com/a/20180510/022456.htm":"吉首治安",
+        "http://hn.qq.com/a/20180719/035934.htm":"吉首治安",
+        "http://hn.qq.com/a/20171122/017869.htm":"吉首治安",
+        "http://hn.qq.com/a/20160804/014680.htm":"吉首智慧城市",
+        "http://hn.qq.com/a/20171128/059455.htm":"吉首治安",
+        "http://hn.qq.com/a/20180919/010893.htm":"霸座",
+        "http://hn.qq.com/a/20180919/014495.htm":"霸座",
+        "http://hn.qq.com/a/20170327/015273.htm":"吉首高铁",
+        "http://hn.qq.com/a/20161223/019175.htm":"吉首高铁",
+        "http://hn.qq.com/a/20171019/019442.htm":"湘西特色文化",
+        "http://hn.qq.com/a/20170622/042305.htm":"吉首建设"
     }
 
     def get_hot_subject(self,url):
@@ -59,11 +100,8 @@ class CommentSpiderSpider(scrapy.Spider):
         news_title = re.findall(re.compile(r"title:(.*)"), str(response.text))
         item['title'] = news_title[0]
         # results = self.parse_coral("3082500237")
-        results = self.parse_coral(str(cmtid[0])) #从新闻页面获取评论页面的cmt_id
+        results,commentnum = self.parse_coral(str(cmtid[0])) #从新闻页面获取评论页面的cmt_id
         # item['comments'] = results
-
-
-
 
         # comment_time = results[0][0]
         # comment = results[0][1]
@@ -94,8 +132,13 @@ class CommentSpiderSpider(scrapy.Spider):
         item['second_source'] = "tencentNews"
         item['link'] = response.url
         item['terminal'] = ""
-
-
+        now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        # item['crawl_time'] = now_time
+        machine_node = socket.gethostname()
+        # item['machine_node'] = machine_node
+        IP = socket.gethostbyname(machine_node)
+        # item['IP'] = IP
+        item['comments_num'] = commentnum
 
         yield item
         # for i in range(len(results)):
@@ -106,9 +149,9 @@ class CommentSpiderSpider(scrapy.Spider):
 
     def parse_coral(self, commentid):
         '''
-        获取腾讯新闻评论内容
+        获取腾讯新闻评论内容、时间、评论数
         :param cmtid: 评论网址http://coral.qq.com/3082500237中的3082500237
-        :return:
+        :return: （[时间，评论内容]，评论数）
         '''
         url1 = 'http://coral.qq.com/article/' + commentid + '/comment/v2?callback=_article' + commentid + 'commentv2&orinum=10&oriorder=o&pageflag=1&cursor='
         url2 = '&orirepnum=10&_=1536906868563'
@@ -119,10 +162,14 @@ class CommentSpiderSpider(scrapy.Spider):
         response = self.getHTMLText(url1 + '0' + url2, headers)     # 查看更多评论，不断更改cursor的值
 
         result = []
+        commentnum = 0
         while 1:
             pattern = "_article" + commentid + "commentv2\\((.+)\\)"
             g = re.search(pattern, response)
             out = json.loads(g.group(1))
+            print("评论数：")
+            print(out["data"]["targetInfo"]["commentnum"])
+            commentnum = out["data"]["targetInfo"]["commentnum"]
             if not out["data"]["last"]:
                 print("finish！")
                 break;
@@ -140,7 +187,7 @@ class CommentSpiderSpider(scrapy.Spider):
             # print("下一个评论页面链接")
             # print(url)
             response = self.getHTMLText(url, headers)
-        return result
+        return result,commentnum
 
     def getHTMLText(self, url, headers):
         try:

@@ -22,7 +22,11 @@ class TencentnewscommentspiderItem(scrapy.Item):
     # comment = scrapy.Field()  #评论内容
     # comment_time = scrapy.Field()  # 评论时间
 
+    comments_num = scrapy.Field() #评论数
     terminal = scrapy.Field()  #终端
+    crawl_time = scrapy.Field() #爬取时间
+    machine_node = scrapy.Field() #机器名
+    IP = scrapy.Field() #IP
 
 
 

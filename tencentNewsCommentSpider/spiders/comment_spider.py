@@ -147,6 +147,8 @@ class CommentSpiderSpider(scrapy.Spider):
         #     item['comment']  = results[i][1]
         #     yield item
 
+
+#http://coral.qq.com/article/3082500237/comment/v2?callback=_article3082500237commentv2&orinum=10&oriorder=o&pageflag=1&cursor=6444817531328604004&scorecursor=0&orirepnum=2&reporder=o&reppageflag=1&source=1&_=1537429898648
     def parse_coral(self, commentid):
         '''
         获取腾讯新闻评论内容、时间、评论数
